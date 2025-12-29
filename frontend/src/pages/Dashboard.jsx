@@ -21,6 +21,7 @@ const Dashboard = () => {
   const limit = 10; // Hardcoded limit for pagination
 
   const loadNotes = useCallback(async () => {
+<<<<<<< HEAD
     setLoading(true);
     try {
       const params = {
@@ -41,13 +42,61 @@ const Dashboard = () => {
       setLoading(false);
     }
   }, [search, category, archived, page]);
+=======
+  setLoading(true);
+  try {
+    const params = {
+      page,
+      limit,
+    };
+
+    if (search) params.search = search;
+    if (category) params.category = category;
+    if (archived !== '') params.archived = archived;
+
+    const response = await fetchNotes(params);
+
+    const notesData =
+      response.data?.data?.notes ||
+      response.data?.notes ||
+      response.data?.data ||
+      [];
+
+    setNotes(Array.isArray(notesData) ? notesData : []);
+
+    setTotalPages(
+      response.data?.data?.pagination?.totalPages ||
+      response.data?.pagination?.totalPages ||
+      response.data?.totalPages ||
+      1
+    );
+
+  } catch (error) {
+    console.error('Error fetching notes:', error);
+    setNotes([]);
+    setTotalPages(1);
+  } finally {
+    setLoading(false);
+  }
+}, [search, category, archived, page]);
+
+      
+
+>>>>>>> 35d0515 (stage1 :working all fine project  without good frontend colours)
 
   const loadCategories = async () => {
     try {
       const response = await fetchCategories();
+<<<<<<< HEAD
       setCategories(response.data);
     } catch (error) {
       console.error('Error fetching categories:', error);
+=======
+      setCategories(Array.isArray(response.data) ? response.data : []);
+    } catch (error) {
+      console.error('Error fetching categories:', error);
+      setCategories([]);
+>>>>>>> 35d0515 (stage1 :working all fine project  without good frontend colours)
     }
   };
 
@@ -163,7 +212,11 @@ const Dashboard = () => {
 
       {loading ? (
         <LoadingSpinner />
+<<<<<<< HEAD
       ) : notes.length === 0 ? (
+=======
+      ) : notes?.length === 0 ? (
+>>>>>>> 35d0515 (stage1 :working all fine project  without good frontend colours)
         <p className="text-center text-xl text-gray-500 mt-10">No notes found matching your criteria. Why not create one?</p>
       ) : (
         <>

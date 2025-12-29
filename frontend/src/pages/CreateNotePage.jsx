@@ -14,6 +14,7 @@ const CreateNotePage = () => {
     const loadCategories = async () => {
       try {
         const response = await fetchCategories();
+<<<<<<< HEAD
         setCategories(response.data);
         if (response.data.length > 0) {
           // Set the first category as default if none is set
@@ -21,6 +22,17 @@ const CreateNotePage = () => {
         }
       } catch (error) {
         console.error('Error fetching categories:', error);
+=======
+        const data = Array.isArray(response.data) ? response.data : [];
+        setCategories(data);
+        if (data.length > 0) {
+          // Set the first category as default if none is set
+          setFormData(f => ({ ...f, category: data[0]._id }));
+        }
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+        setCategories([]);
+>>>>>>> 35d0515 (stage1 :working all fine project  without good frontend colours)
       }
     };
     loadCategories();

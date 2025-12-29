@@ -15,9 +15,16 @@ const CategoriesPage = () => {
     setError('');
     try {
       const response = await fetchCategories();
+<<<<<<< HEAD
       setCategories(response.data);
     } catch (err) {
       setError('Failed to load categories.');
+=======
+      setCategories(Array.isArray(response.data) ? response.data : []);
+    } catch (err) {
+      setError('Failed to load categories.');
+      setCategories([]);
+>>>>>>> 35d0515 (stage1 :working all fine project  without good frontend colours)
     } finally {
       setLoading(false);
     }

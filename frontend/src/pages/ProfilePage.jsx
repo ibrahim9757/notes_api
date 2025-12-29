@@ -12,7 +12,11 @@ const ProfilePage = () => {
     const loadProfile = async () => {
       try {
         const response = await fetchProfile();
+<<<<<<< HEAD
         setProfile(response.data);
+=======
+        setProfile(response.data.data.user);
+>>>>>>> 35d0515 (stage1 :working all fine project  without good frontend colours)
       } catch (err) {
         setError('Failed to load profile.');
       } finally {
