@@ -19,11 +19,7 @@ const LoginPage = () => {
     try {
       const response = await login(formData);
       // Store the JWT token in localStorage
-<<<<<<< HEAD
-      localStorage.setItem('jwt_token', response.data.token);
-=======
       localStorage.setItem('jwt_token', response.data.data.token);
->>>>>>> 35d0515 (stage1 :working all fine project  without good frontend colours)
       navigate('/');
     } catch (err) {
       const message = err.response?.data?.message || 'Login failed.';

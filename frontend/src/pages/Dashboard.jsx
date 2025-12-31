@@ -21,28 +21,6 @@ const Dashboard = () => {
   const limit = 10; // Hardcoded limit for pagination
 
   const loadNotes = useCallback(async () => {
-<<<<<<< HEAD
-    setLoading(true);
-    try {
-      const params = {
-        search,
-        category,
-        archived,
-        page,
-        limit,
-      };
-      const response = await fetchNotes(params);
-      setNotes(response.data.notes);
-      setTotalPages(response.data.totalPages);
-    } catch (error) {
-      console.error('Error fetching notes:', error);
-      setNotes([]);
-      setTotalPages(1);
-    } finally {
-      setLoading(false);
-    }
-  }, [search, category, archived, page]);
-=======
   setLoading(true);
   try {
     const params = {
@@ -82,21 +60,15 @@ const Dashboard = () => {
 
       
 
->>>>>>> 35d0515 (stage1 :working all fine project  without good frontend colours)
 
   const loadCategories = async () => {
     try {
       const response = await fetchCategories();
-<<<<<<< HEAD
-      setCategories(response.data);
-    } catch (error) {
-      console.error('Error fetching categories:', error);
-=======
+
       setCategories(Array.isArray(response.data) ? response.data : []);
     } catch (error) {
       console.error('Error fetching categories:', error);
       setCategories([]);
->>>>>>> 35d0515 (stage1 :working all fine project  without good frontend colours)
     }
   };
 
@@ -212,11 +184,7 @@ const Dashboard = () => {
 
       {loading ? (
         <LoadingSpinner />
-<<<<<<< HEAD
-      ) : notes.length === 0 ? (
-=======
       ) : notes?.length === 0 ? (
->>>>>>> 35d0515 (stage1 :working all fine project  without good frontend colours)
         <p className="text-center text-xl text-gray-500 mt-10">No notes found matching your criteria. Why not create one?</p>
       ) : (
         <>

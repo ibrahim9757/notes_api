@@ -19,11 +19,6 @@ const EditNotePage = () => {
           fetchNoteById(id),
           fetchCategories()
         ]);
-<<<<<<< HEAD
-
-        const note = noteRes.data;
-        setCategories(categoriesRes.data);
-=======
         console.log("FULL noteRes:", noteRes);
         console.log("noteRes.data:", noteRes.data);
 
@@ -35,7 +30,6 @@ const EditNotePage = () => {
 
         const data = Array.isArray(categoriesRes.data) ? categoriesRes.data : [];
         setCategories(data);
->>>>>>> 35d0515 (stage1 :working all fine project  without good frontend colours)
         setFormData({
           title: note.title,
           content: note.content,
