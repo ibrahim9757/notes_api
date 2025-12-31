@@ -1,9 +1,4 @@
-/* src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom scrollbar styling (optional, for better aesthetics) */
-body {
-  @apply bg-gray-50;
-}
