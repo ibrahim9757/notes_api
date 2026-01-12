@@ -6,7 +6,9 @@ import axios from 'axios';
 // ----------------------------------------------------
 
 // NOTE: Replace this with your actual backend URL!
-const API_URL = 'http://localhost:5000/api';
+// const API_URL = 'http://localhost:5000/api';  for local development
+
+const API_URL = 'https://notes-api-slkt.onrender.com/api';
 
 const api = axios.create({
   baseURL: API_URL,
