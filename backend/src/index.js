@@ -22,7 +22,7 @@ connectDB().catch(err => {
 // Middleware to parse JSON
 
 
-app.use(cors());
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // CORS configuration
